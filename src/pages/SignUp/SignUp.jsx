@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import googleIcon from "../../assets/images/google.png";
@@ -8,9 +8,35 @@ import emailIcon from "../../assets/images/mail.png";
 import { SignUpButton } from "../../components/Buttons/SignUpBtn";
 import Language from "../../assets/images/Language.png";
 import Logo from "../../assets/images/Logo.png";
+import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
 
 export const SignUp = () => {
+  // const [isLoading, setIsLoading] = useState(false);
+  const [payload, setPayload] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handlePayload = (e) => {
+    const { name, value } = e.target;
+    setPayload({
+      ...payload,
+      [name]: value,
+    });
+  };
+
+  console.log("SignUp_Payload", payload);
+
+  const handleSubmit = (e) => {
+    console.log("Form submitted with payload:", payload);
+    showToast({
+      message: "Login Successful",
+      type: "success",
+    });
+  };
+
   return (
     <div className="lg:p-[60px] max-w-[1300px] mx-auto">
       <img className="hidden xl:flex w-[15%]" src={Logo} alt="logo_image" />
@@ -54,12 +80,20 @@ export const SignUp = () => {
                 type="text"
                 className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
                 placeholder="Username"
+                name="username"
+                id="username"
+                value={payload.username}
+                onChange={handlePayload}
               />
 
               <Input
                 type="email"
                 className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
                 placeholder="Email address"
+                name="email"
+                id="email"
+                value={payload.email}
+                onChange={handlePayload}
                 icon={
                   <button className="focus:outline-none">
                     <img src={emailIcon} alt="eye icon" />
@@ -71,6 +105,10 @@ export const SignUp = () => {
                 type="password"
                 className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
                 placeholder="Password"
+                name="password"
+                id="password"
+                value={payload.password}
+                onChange={handlePayload}
                 icon={
                   <button className="focus:outline-none">
                     <img src={eyeIcon} alt="eye icon" />
@@ -83,7 +121,16 @@ export const SignUp = () => {
               <span className="text-primaryColor">8 characters</span>
             </p>
 
-            <button className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor">
+            <button
+              className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor"
+              onClick={handleSubmit}
+              transition="0.5s"
+              disabled={
+                payload.username === "" &&
+                payload.email === "" &&
+                payload.password === ""
+              }
+            >
               Sign Up
             </button>
 
