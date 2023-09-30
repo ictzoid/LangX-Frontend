@@ -1,0 +1,8 @@
+#text-custom-shadow::first-letter {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+#text-custom-shadow::after {
+  content: "Please note that email verification is required for signup. Your email will only be used to verify your identity for security purposes.";
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
