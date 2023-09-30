@@ -38,6 +38,11 @@ export const SignUp = () => {
         type: "success",
       });
       setIsLoading(false);
+      setPayload({
+        username: "",
+        email: "",
+        password: "",
+      });
     }, 2000);
   };
 
@@ -82,7 +87,7 @@ export const SignUp = () => {
             <div className="flex flex-col items-center mt-6 gap-4">
               <Input
                 type="text"
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
                 placeholder="Username"
                 name="username"
                 id="username"
@@ -92,22 +97,18 @@ export const SignUp = () => {
 
               <Input
                 type="email"
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
                 placeholder="Email address"
                 name="email"
                 id="email"
                 value={payload.email}
                 onChange={handlePayload}
-                icon={
-                  <button className="focus:outline-none">
-                    <img src={emailIcon} alt="eye icon" />
-                  </button>
-                }
+                icon={<img src={emailIcon} alt="email icon" />}
               />
 
               <Input
                 type="password"
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px]"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
                 placeholder="Password"
                 name="password"
                 id="password"
@@ -122,7 +123,7 @@ export const SignUp = () => {
             </p>
 
             <button
-              className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor"
+              className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor focus:outline-none"
               onClick={handleSubmit}
               disabled={isLoading}
             >
