@@ -12,7 +12,7 @@ export const SignUp = () => {
     <div className="w-full lg:flex">
       <div className="lg:w-[50%] hidden lg:flex"></div>
       <div className="lg:w-[50%]">
-        <div className="px-[10px] py-20 w-[320px] md:w-[400px] mx-auto">
+        <div className="px-[10px] py-20 w-[320px] md:w-[400px]  lg:w-[320px] mx-auto">
           <h3 className="text-center text-[24px] font-medium">
             Create an account
           </h3>
