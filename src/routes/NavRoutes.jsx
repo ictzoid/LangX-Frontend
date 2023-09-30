@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp";
 import EmailVerify from "../pages/EmailVerify";
 import ResetPassword from "../pages/ResetPassword";
 import ForgotPassword from "../pages/ForgotPassword";
+import Notfound from "../pages/NotFound";
 
 export const NavRoutes = () => {
   return (
@@ -17,6 +18,7 @@ export const NavRoutes = () => {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/email-verification" element={<EmailVerify />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>
   );
