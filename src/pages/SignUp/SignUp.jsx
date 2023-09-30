@@ -12,7 +12,7 @@ import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
 
 export const SignUp = () => {
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({
     username: "",
     email: "",
@@ -30,11 +30,15 @@ export const SignUp = () => {
   console.log("SignUp_Payload", payload);
 
   const handleSubmit = (e) => {
-    console.log("Form submitted with payload:", payload);
-    showToast({
-      message: "Login Successful",
-      type: "success",
-    });
+    setIsLoading(true);
+    setTimeout(() => {
+      console.log("Form submitted with payload:", payload);
+      showToast({
+        message: "Login Successful",
+        type: "success",
+      });
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -109,11 +113,7 @@ export const SignUp = () => {
                 id="password"
                 value={payload.password}
                 onChange={handlePayload}
-                icon={
-                  <button className="focus:outline-none">
-                    <img src={eyeIcon} alt="eye icon" />
-                  </button>
-                }
+                icon={<img src={eyeIcon} alt="eye icon" />}
               />
             </div>
             <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2">
@@ -124,14 +124,16 @@ export const SignUp = () => {
             <button
               className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor"
               onClick={handleSubmit}
-              transition="0.5s"
-              disabled={
-                payload.username === "" &&
-                payload.email === "" &&
-                payload.password === ""
-              }
+              disabled={isLoading}
             >
-              Sign Up
+              {isLoading ? (
+                <div className="flex items-center">
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></div>
+                  Loading...
+                </div>
+              ) : (
+                "Sign Up"
+              )}
             </button>
 
             <Link to="/login">
