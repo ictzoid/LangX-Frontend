@@ -1,13 +1,12 @@
-import './App.css'
+import "./App.css";
+import { NavRoutes } from "./routes/NavRoutes";
 
 function App() {
-
   return (
     <>
-    <h1 className='text-fiftyPixels bg-primaryColor text-secondaryColor'>Hello</h1>
-    
+      <NavRoutes />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
