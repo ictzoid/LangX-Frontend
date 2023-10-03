@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import googleIcon from "../../assets/images/google.png";
 import appleIcon from "../../assets/images/apple.png";
-import eyeIcon from "../../assets/images/eye.png";
-import emailIcon from "../../assets/images/mail.png";
 import { SignUpButton } from "../../components/Buttons/SignUpBtn";
 import Language from "../../assets/images/Language.png";
 import Logo from "../../assets/images/Logo.png";
 import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
 import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
+import { MdEmail } from "react-icons/md";
+import { BiSolidUser } from "react-icons/bi";
 
 export const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,19 +32,30 @@ export const SignUp = () => {
 
   const handleSubmit = (e) => {
     setIsLoading(true);
-    setTimeout(() => {
-      console.log("Form submitted with payload:", payload);
+    if (
+      payload.username === "" ||
+      payload.email === "" ||
+      payload.password === ""
+    ) {
       showToast({
-        message: "Login Successful",
-        type: "success",
+        message: "Please fill all fields",
+        type: "error",
       });
       setIsLoading(false);
-      setPayload({
-        username: "",
-        email: "",
-        password: "",
-      });
-    }, 2000);
+    } else {
+      setTimeout(() => {
+        showToast({
+          message: "Login Successful",
+          type: "success",
+        });
+        setPayload({
+          username: "",
+          email: "",
+          password: "",
+        });
+        setIsLoading(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -94,6 +105,7 @@ export const SignUp = () => {
                 id="username"
                 value={payload.username}
                 onChange={handlePayload}
+                rightIcon={<BiSolidUser color="#713586" />}
               />
 
               <Input
@@ -104,42 +116,34 @@ export const SignUp = () => {
                 id="email"
                 value={payload.email}
                 onChange={handlePayload}
-                icon={<img src={emailIcon} alt="email icon" />}
+                rightIcon={<MdEmail color="#713586" />}
               />
 
               <Input
-                type="password"
                 className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
                 placeholder="Password"
                 name="password"
                 id="password"
                 value={payload.password}
                 onChange={handlePayload}
-                icon={<img src={eyeIcon} alt="eye icon" />}
+                type="password"
               />
             </div>
             <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2">
               For a secure password use{" "}
               <span className="text-primaryColor">8 characters</span>
             </p>
-
-            {/* <button
-              className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor focus:outline-none"
+            <PrimaryBtn
+              text="text-[13px] md:text-[16px] lg:text-[18px] text-white"
+              w="w-full"
               onClick={handleSubmit}
-              disabled={isLoading}
+              className="mt-8"
+              isLoading={isLoading}
             >
-              {isLoading ? (
-                <div className="flex items-center">
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></div>
-                  Loading...
-                </div>
-              ) : (
-                "Sign Up"
-              )}
-            </button> */}
-            <PrimaryBtn onClick={handleSubmit}>Sign Up</PrimaryBtn>
+              Sign Up
+            </PrimaryBtn>
 
-            <Link to="/login">
+            <Link to="/">
               <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2 text-center">
                 Have an Account?{" "}
                 <span className="text-primaryColor">Log in</span>
