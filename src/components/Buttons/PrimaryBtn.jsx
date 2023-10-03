@@ -4,7 +4,7 @@ export const PrimaryBtn = ({
   children,
   className,
   bg = "bg-primaryColor",
-  w="w-full",
+  w = "w-[200px]",
   loadingtext = false,
   disabled = false,
 }) => {
