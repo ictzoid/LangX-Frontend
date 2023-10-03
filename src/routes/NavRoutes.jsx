@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LogIn from "../pages/LogIn";
-import SignUp from "../pages/SignUp";
 import EmailVerify from "../pages/EmailVerify";
 import ResetPassword from "../pages/ResetPassword";
 import ForgotPassword from "../pages/ForgotPassword";
 import NotFound from "../pages/NotFound";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Dashboard from "../pages/Dashboard";
+import { SignUp } from "../pages/SignUp/SignUp";
 
 export const NavRoutes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
