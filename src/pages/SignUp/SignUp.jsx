@@ -137,9 +137,7 @@ export const SignUp = () => {
                 "Sign Up"
               )}
             </button> */}
-            <PrimaryBtn isLoading={isLoading} onClick={handleSubmit}>
-              Sign Up
-            </PrimaryBtn>
+            <PrimaryBtn onClick={handleSubmit}>Sign Up</PrimaryBtn>
 
             <Link to="/login">
               <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2 text-center">
