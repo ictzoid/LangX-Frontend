@@ -8,16 +8,22 @@ export const PrimaryBtn = ({
   h = "h-[42px]",
   text = "text-[#fff]",
   rounded = "rounded-[8px]",
-  loadingtext = false,
+  loadingText = "Please wait . . .",
   disabled = false,
+  isLoading = false,
+  onClick,
 }) => {
   const combinedClassName = `${bg} ${w} ${h} ${text} ${rounded} ${
     className || ""
-  } ${loadingtext ? "loading" : ""}`;
+  }`;
 
   return (
-    <button className={`${combinedClassName}`} disabled={disabled}>
-      {loadingtext ? "Loading..." : children}
+    <button
+      className={`${combinedClassName}`}
+      disabled={isLoading || disabled}
+      onClick={onClick}
+    >
+      {isLoading ? loadingText : children}
     </button>
   );
 };
