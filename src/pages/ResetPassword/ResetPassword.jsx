@@ -5,7 +5,6 @@ import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
 import Logo from "../../assets/images/Logo.png";
-import { toast } from "react-toastify";
 
 export const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +15,7 @@ export const ResetPassword = () => {
     newPassword: "",
     confirmNewPassword: "",
   });
-  console.log(resetInput);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -24,6 +23,7 @@ export const ResetPassword = () => {
   };
 
   const resetButton = (event) => {
+    // setIsLoading(true);
     event.preventDefault();
     const regEx = new RegExp(
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/
@@ -35,10 +35,14 @@ export const ResetPassword = () => {
     } else if (resetInput.newPassword !== resetInput.confirmNewPassword) {
       setError("Passwords do not match!");
     } else {
-      alert("Password reset successful");
-      setResetInput({ newPassword: "", confirmNewPassword: "" });
-      setError("");
-      setPassError("");
+      setIsLoading(true);
+      setTimeout(() => {
+        alert("Password reset successful");
+        setResetInput({ newPassword: "", confirmNewPassword: "" });
+        setError("");
+        setPassError("");
+        setIsLoading(false);
+      }, 2000);
     }
   };
 
@@ -109,6 +113,7 @@ export const ResetPassword = () => {
         <PrimaryBtn
           className="w-[100%] text-[14px] lg:w-[366px] hover:bg-[#8D5E9E]"
           onClick={resetButton}
+          isLoading={isLoading}
         >
           Reset Password
         </PrimaryBtn>
