@@ -10,6 +10,7 @@ import Language from "../../assets/images/Language.png";
 import Logo from "../../assets/images/Logo.png";
 import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
+import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
 
 export const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -122,7 +123,7 @@ export const SignUp = () => {
               <span className="text-primaryColor">8 characters</span>
             </p>
 
-            <button
+            {/* <button
               className="text-[13px] md:text-[16px] lg:text-[18px] font-regular py-3 rounded-[7px] text-white flex items-center justify-center gap-2 w-full mt-8 bg-primaryColor focus:outline-none"
               onClick={handleSubmit}
               disabled={isLoading}
@@ -135,7 +136,23 @@ export const SignUp = () => {
               ) : (
                 "Sign Up"
               )}
-            </button>
+            </button> */}
+            <PrimaryBtn
+              w="100%"
+              // h="42px"
+              // bg="#713586"
+              // borderRadius="8px"
+              mt="8px"
+              px="16px"
+              py="8px"
+              text="18px"
+              // color="#fff"
+              hover="#8D5E9E"
+              isLoading={isLoading}
+              onClick={handleSubmit}
+            >
+              Sign Up
+            </PrimaryBtn>
 
             <Link to="/login">
               <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2 text-center">
