@@ -17,6 +17,9 @@ export const ResetPassword = () => {
         <p className="text-center font-normal leading-[20px] text-[14px] text-[#616161] ">
           Enter a strong password that is 8 character long.
         </p>
+        <div>
+          <input type=""/>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 export const PrimaryBtn = ({
   children,
@@ -16,10 +17,11 @@ export const PrimaryBtn = ({
   color = "#fff",
   text = "18px",
   hover = "#8D5E9E",
-  loadingText = "Please wait...",
+  loadingtext = false,
   border,
   rounded = "8px",
-  disabled = false
+  disabled = false,
+  className,
 }) => {
   const btnStyle = {
     width: w,
@@ -38,12 +40,8 @@ export const PrimaryBtn = ({
     fontWeight: fw,
     border: border,
     rounded: rounded,
-disabled: disabled
+    disabled: disabled,
+    className: className,
   };
-  return (
-    <button style={btnStyle}>
-      {children}
-      {loadingText && <span>{loadingText}</span>}
-    </button>
-  );
+  return <button style={btnStyle}>{children}</button>;
 };
