@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LogIn from "../pages/LogIn";
 import EmailVerify from "../pages/EmailVerify";
@@ -11,6 +11,7 @@ import EmailVerifyThankYou from "../pages/EmailVerify/EmailVerifyThankYou";
 import EmailVerifySuccess from "../pages/EmailVerify/EmailVerifySuccess";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Dashboard from "../pages/Dashboard";
+import { useState } from "react";
 
 export const NavRoutes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,9 +19,9 @@ export const NavRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ResetPassword />} />
+        <Route path="/" element={<LogIn />} />
         <Route path="/register" element={<SignUp />} />
-        {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/email-verification" element={<EmailVerify />} />
         <Route path="/email-verification2" element={<EmailVerify2 />} />
         <Route path="/email-verification3" element={<EmailVerifyThankYou />} />
