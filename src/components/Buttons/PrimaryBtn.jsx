@@ -1,47 +1,20 @@
 import React from "react";
-import { useState } from "react";
 
 export const PrimaryBtn = ({
   children,
-  w = "123px",
-  h = "42px",
-  bg = primaryColor,
-  borderRadius,
-  mt,
-  mb,
-  px,
-  py,
-  mr,
-  ml,
-  fw = "400",
-  color = "#fff",
-  text = "18px",
-  hover = "#8D5E9E",
-  loadingtext = false,
-  border,
-  rounded = "8px",
-  disabled = false,
   className,
+  bg = "bg-primaryColor",
+  w="w-[200px]",
+  loadingtext = false,
+  disabled = false,
 }) => {
-  const btnStyle = {
-    width: w,
-    height: h,
-    background: bg,
-    borderRadius: borderRadius,
-    mt: mt,
-    mb: mb,
-    mr: mr,
-    ml: ml,
-    px: px,
-    py: py,
-    color: color,
-    fontSize: text,
-    hover: hover,
-    fontWeight: fw,
-    border: border,
-    rounded: rounded,
-    disabled: disabled,
-    className: className,
-  };
-  return <button style={btnStyle}>{children}</button>;
+  const combinedClassName = `${bg} ${w} ${className || ""} ${
+    loadingtext ? "loading" : ""
+  }`;
+
+  return (
+    <button className={`${combinedClassName}`} disabled={disabled}>
+      {loadingtext ? "Loading..." : children}
+    </button>
+  );
 };

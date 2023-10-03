@@ -138,18 +138,12 @@ export const SignUp = () => {
               )}
             </button> */}
             <PrimaryBtn
-              w="100%"
-              // h="42px"
-              // bg="#713586"
-              // borderRadius="8px"
-              mt="8px"
-              px="16px"
-              py="8px"
-              text="18px"
-              // color="#fff"
-              hover="#8D5E9E"
               isLoading={isLoading}
+              // bg="bg-red-500"
               onClick={handleSubmit}
+              // w="w-full md:w-[200px]"
+              // className="text-[13px] md:text-[16px] lg:text-[18px] mt-4 md:mt-20"
+              className=""
             >
               Sign Up
             </PrimaryBtn>
