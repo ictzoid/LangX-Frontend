@@ -5,7 +5,7 @@ import EmailVerify from "../pages/EmailVerify";
 import ResetPassword from "../pages/ResetPassword";
 import ForgotPassword from "../pages/ForgotPassword";
 import NotFound from "../pages/NotFound"
-import Home from "../pages/Home"
+// import Home from "../pages/Home"
 import EmailVerify2 from "../pages/EmailVerify/EmailVerify2";  
 import EmailVerifyThankYou from "../pages/EmailVerify/EmailVerifyThankYou";
 import EmailVerifySuccess from "../pages/EmailVerify/EmailVerifySuccess";
@@ -20,8 +20,8 @@ export const NavRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<LogIn />} />
+        {/* <Route path="/" element={<Login/>} /> */}
+        {/* <Route path="/login" element={<LogIn />} /> */}
         <Route path="/" element={<LogIn />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
