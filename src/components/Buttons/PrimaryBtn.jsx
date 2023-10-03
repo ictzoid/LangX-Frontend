@@ -10,13 +10,18 @@ export const PrimaryBtn = ({
   rounded = "rounded-[8px]",
   loadingtext = false,
   disabled = false,
+  onClick,
 }) => {
   const combinedClassName = `${bg} ${w} ${h} ${text} ${rounded} ${
     className || ""
   } ${loadingtext ? "loading" : ""}`;
 
   return (
-    <button className={`${combinedClassName}`} disabled={disabled}>
+    <button
+      className={`${combinedClassName}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {loadingtext ? "Loading..." : children}
     </button>
   );

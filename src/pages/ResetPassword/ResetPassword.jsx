@@ -1,16 +1,55 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import resetLogo from "../../assets/images/resetLogo.png";
+import { BsEye } from "react-icons/bs";
+import { BsEyeSlash } from "react-icons/bs";
+import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
+import Logo from "../../assets/images/Logo.png";
+import { toast } from "react-toastify";
 
 export const ResetPassword = () => {
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const [error, setError] = useState("");
+  const [passError, setPassError] = useState("");
   const [resetInput, setResetInput] = useState({
-    newPassword : "",
-    confirmNewPassword : ""
+    newPassword: "",
+    confirmNewPassword: "",
   });
+  console.log(resetInput);
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setResetInput({ ...resetInput, [name]: value });
+  };
+
+  const resetButton = (event) => {
+    event.preventDefault();
+    const regEx = new RegExp(
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/
+    );
+    if (!regEx.test(resetInput.newPassword)) {
+      setPassError(
+        "Password must have At least one alphabetical character, At least one digit, Contains at least one special character (e.g., !@#$%^&*) and Minimum length of 8 characters"
+      );
+    } else if (resetInput.newPassword !== resetInput.confirmNewPassword) {
+      setError("Passwords do not match!");
+    } else {
+      alert("Password reset successful");
+      setResetInput({ newPassword: "", confirmNewPassword: "" });
+      setError("");
+      setPassError("");
+    }
+  };
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="flex flex-col items-center px-[10%] gap-[10px]">
+    <div className="flex justify-center items-center mt-[45%] lg:mt-[7%]">
+      <img
+        className="hidden md:block absolute top-5 left-10 w-[149px] h-[36px]"
+        src={Logo}
+        alt="LingoLeap Logo"
+      />
+      <div className="flex flex-col items-center px-[10%] gap-[15px] lg:gap-[px]">
         <div className="flex flex-col items-center">
           {" "}
           <img
@@ -18,15 +57,69 @@ export const ResetPassword = () => {
             src={resetLogo}
             alt="shield logo"
           />
-          <p className="text-primaryColor font-semibold">Reset Password</p>
+          <p className="text-primaryColor font-semibold lg:text-[40px] lg:leading-[60px]">
+            Reset Password
+          </p>
         </div>
-        <p className="text-center font-normal leading-[20px] text-[14px] text-[#616161] ">
+        <p className="text-center font-normal leading-[20px] text-[14px] text-[#616161] lg:text-[18px] lg:w-[366px]">
           Enter a strong password that is 8 character long.
         </p>
-        <div>
-          <input type="text" placeholder="" name="newPassword"/>
+        <div className="flex flex-col gap-[12px]">
+          <div className="flex border-[1px] border-[#616161] items-center px-[5px] w-[300px] h-[40px] rounded-[8px] lg:w-[366px] lg:h-[42px]">
+            <input
+              className="outline-none w-full font-normal text-[14px] leading-[20px]"
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter New Password"
+              name="newPassword"
+              value={resetInput.newPassword}
+              onChange={handleInput}
+            />
+            <div onClick={() => setShowPassword(!showPassword)}>
+              {!showPassword ? (
+                <BsEyeSlash className="w-[24px] h-[24px]" />
+              ) : (
+                <BsEye className="w-[24px] h-[24px]" />
+              )}
+            </div>
+          </div>
+          <div>
+            <div className="flex border-[1px] border-[#616161] items-center px-[5px] w-[300px] h-[40px] rounded-[8px] lg:w-[366px] lg:h-[42px]">
+              <input
+                className="outline-none w-full font-normal text-[14px] leading-[20px]"
+                type={showPassword2 ? "text" : "password"}
+                placeholder="Confirm New Password"
+                name="confirmNewPassword"
+                onChange={handleInput}
+                value={resetInput.confirmNewPassword}
+              />
+              <div onClick={() => setShowPassword2(!showPassword2)}>
+                {!showPassword2 ? (
+                  <BsEyeSlash className="w-[24px] h-[24px]" />
+                ) : (
+                  <BsEye className="w-[24px] h-[24px]" />
+                )}
+              </div>
+            </div>
+          </div>
+          <p className="text-red-500 italic text-[14px]">{error}</p>
         </div>
+        <p className="text-red-500 italic text-[14px] lg:w-[50%]">
+          {passError}
+        </p>
+        <PrimaryBtn
+          className="w-[100%] text-[14px] lg:w-[366px] hover:bg-[#8D5E9E]"
+          onClick={resetButton}
+        >
+          Reset Password
+        </PrimaryBtn>
+        <Link to="/">
+          <p className="text-primaryColor text-[14px]">Back To Login</p>
+        </Link>
       </div>
+      <p className="absolute bottom-5 hidden lg:block text-[16px] text-[#616161] font-normal ">
+        &#169; Copyright 2023{" "}
+        <span className="text-primaryColor">Langleap</span>
+      </p>
     </div>
   );
 };
