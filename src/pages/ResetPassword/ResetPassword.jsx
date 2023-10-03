@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import resetLogo from "../../assets/images/resetLogo.png";
 
 export const ResetPassword = () => {
+
+  const [resetInput, setResetInput] = useState({
+    newPassword : "",
+    confirmNewPassword : ""
+  });
+
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col items-center px-[10%] gap-[10px]">
@@ -18,7 +24,7 @@ export const ResetPassword = () => {
           Enter a strong password that is 8 character long.
         </p>
         <div>
-          <input type=""/>
+          <input type="text" placeholder="" name="newPassword"/>
         </div>
       </div>
     </div>
