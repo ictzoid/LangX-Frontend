@@ -4,7 +4,8 @@ import LogIn from "../pages/LogIn";
 import EmailVerify from "../pages/EmailVerify";
 import ResetPassword from "../pages/ResetPassword";
 import ForgotPassword from "../pages/ForgotPassword";
-
+import NotFound from "../pages/NotFound"
+import Home from "../pages/Home"
 import EmailVerify2 from "../pages/EmailVerify/EmailVerify2";  
 import EmailVerifyThankYou from "../pages/EmailVerify/EmailVerifyThankYou";
 import EmailVerifySuccess from "../pages/EmailVerify/EmailVerifySuccess";
