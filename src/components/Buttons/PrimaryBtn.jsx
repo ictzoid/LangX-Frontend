@@ -4,7 +4,7 @@ export const PrimaryBtn = ({
   children,
   w = "123px",
   h = "42px",
-  bg = primaryColor,
+  bg = "#713586",
   borderRadius,
   mt,
   mb,
@@ -19,7 +19,7 @@ export const PrimaryBtn = ({
   loadingText = "Please wait...",
   border,
   rounded = "8px",
-  disabled = false
+  disabled = false,
 }) => {
   const btnStyle = {
     width: w,
@@ -38,7 +38,7 @@ export const PrimaryBtn = ({
     fontWeight: fw,
     border: border,
     rounded: rounded,
-disabled: disabled
+    disabled: disabled,
   };
   return (
     <button style={btnStyle}>
