@@ -10,7 +10,7 @@ export const LogIn = () => {
   return (
     <div className="flex justify-center gap-20">
       <div className="hidden lg:block">
-        <h4 className="text-[#713584] w-[15.71px] h-[16.63px]">Lingoleap</h4>
+        <h4 className="text-primaryColor w-[15.71px] h-[16.63px]">Lingoleap</h4>
         <img className="w-[300px] h-[600px]" src={heroImg} />
       </div>
       <div className="text-center mt-[60px] ">

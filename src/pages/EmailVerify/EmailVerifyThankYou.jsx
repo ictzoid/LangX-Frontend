@@ -16,22 +16,29 @@ const EmailVerifyThankYou = () => {
             className="m-auto my-4 text-[5rem] h-[4rem] w-[5rem]"
             src={mail}
           />
-          <p className="text-xl font-semibold">Hi User,Thank you for signing up to</p>
-          <h2 className="text-primaryColor my-4 text-4xl">
-            LingoLeap
-          </h2>
+          <p className="text-xl font-semibold">
+            Hi User,Thank you for signing up to
+          </p>
+          <h2 className="text-primaryColor my-4 text-4xl">LingoLeap</h2>
           <p className="md:text-2xl">
-            Please confirm your email address by clicking on the verify email button below
+            Please confirm your email address by clicking on the verify email
+            button below
           </p>
           <div className="bg-primaryColor rounded p-2 my-8 lg:w-[40vw] mx-auto">
-        <Link to="/email-verification2" >
-        <p className="text-white md:text-2xl text-center">Verify your email</p>
-        </Link>
-          
+            <Link to="/email-verification2">
+              <p className="text-white md:text-2xl text-center">
+                Verify your email
+              </p>
+            </Link>
+          </div>
+          <p>
+            You received this email because you created an account with our
+            website.{" "}
+            <Link to="/*" className="text-primaryColor">
+              Unsubscribe
+            </Link>
+          </p>
         </div>
-        <p>You received this email because you created an account with our website.<Link to="/*" className="text-primaryColor">Unsubscribe</Link></p>
-        </div>
-        
       </div>
     </div>
   );
