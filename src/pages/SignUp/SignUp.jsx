@@ -30,7 +30,7 @@ export const SignUp = () => {
 
   console.log("SignUp_Payload", payload);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     setIsLoading(true);
     if (
       payload.username === "" ||
@@ -70,7 +70,7 @@ export const SignUp = () => {
         </div>
         <div className=" md:flex md:justify-left">
           <div className="px-[10px] py-16 md:py-20 w-[320px] md:w-[400px] mx-auto">
-            <h3 className="text-center text-[24px] md:text-[28px] lg:text-[32px] font-medium lg:font-semibold">
+            <h3 className="text-center text-twentyFourPixels md:text-[28px] lg:text-[32px] font-medium lg:font-semibold">
               Create an account
             </h3>
             <p
