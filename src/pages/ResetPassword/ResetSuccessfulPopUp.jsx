@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "../../components/Modal/Modal";
+import { Link } from "react-router-dom";
 import SuccessIcon from "../../assets/images/SuccessIcon.png";
 import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
 
@@ -16,12 +17,14 @@ export const ResetSuccessfulPopUp = ({ setSuccessful }) => {
           <p className="text-[16px] text-primaryColor text-center lg:text-[20px] ">
             You have successfully reset your password.
           </p>
-          <PrimaryBtn
-            onClick={() => setSuccessful(false)}
-            className="w-full text-[18px] lg:w-[215px] hover:bg-[#8D5E9E]"
-          >
-            Proceed To Login
-          </PrimaryBtn>
+          <Link to="/">
+            <PrimaryBtn
+              onClick={() => setSuccessful(false)}
+              className="w-full text-[18px] lg:w-[215px] hover:bg-[#8D5E9E]"
+            >
+              Proceed To Login
+            </PrimaryBtn>
+          </Link>
         </div>
       </Modal>
     </>

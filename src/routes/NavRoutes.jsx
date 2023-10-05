@@ -19,9 +19,9 @@ export const NavRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ResetPassword />} />
+        <Route path="/" element={<LogIn />} />
         <Route path="/register" element={<SignUp />} />
-        {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/email-verification" element={<EmailVerify />} />
         <Route path="/email-verification2" element={<EmailVerify2 />} />
         <Route path="/email-verification3" element={<EmailVerifyThankYou />} />

@@ -5,7 +5,7 @@ import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
 import Logo from "../../assets/images/Logo.png";
-import { ResetSuccessfulPopUp } from "../ForgotPassword/ResetSuccessfulPopUp";
+import { ResetSuccessfulPopUp } from "../ResetPassword/ResetSuccessfulPopUp";
 
 export const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -130,7 +130,7 @@ export const ResetPassword = () => {
           <span className="text-primaryColor">Langleap</span>
         </p>
       </div>
-    {successful && <ResetSuccessfulPopUp setSuccessful={setSuccessful} />}
+      {successful && <ResetSuccessfulPopUp setSuccessful={setSuccessful} />}
     </>
   );
 };
