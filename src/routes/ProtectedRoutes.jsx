@@ -6,7 +6,7 @@ const ProtectedRoutes = ({ element, isAuthenticated }) => {
   if (!isAuthenticated) {
     showToast({
       type: "error",
-      message: "Please Login to Continue",
+      message: "Please, Login to Continue",
     });
     return <Navigate to="/" replace />;
   }
