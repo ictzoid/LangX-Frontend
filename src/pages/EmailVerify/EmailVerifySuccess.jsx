@@ -15,17 +15,17 @@ const EmailVerifySuccess = () => {
 
         <div className="text-GrayColor1 h-[40vh] mx-auto w-[100vw] lg:w-[40vw] px-10 my-auto text-center mt-[40%] md:mt-[20%] lg:mt-[10%] md:px-0">
           <img
-            className="m-auto my-4 text-[5rem] h-[4rem] w-[5rem]"
+            className="m-auto my-4"
             src={SuccessLogo}
           />
 
-          <h2 className="text-primaryColor my-4 text-4xl">Verified</h2>
-          <p className="md:text-2xl">
+          <h2 className="text-primaryColor my-4 text-4xl font-bold">Verified</h2>
+          <p className="md:text-xl">
             You have successfully verified your email
           </p>
-          <div className="bg-primaryColor rounded p-2 my-8 lg:w-[40vw] mx-auto">
+          <div className="bg-primaryColor rounded-xl p-2 my-8 lg:w-[40vw] mx-auto">
             <Link to="/">
-              <p className="text-white md:text-2xl text-center">
+              <p className="text-white md:text-xl text-center">
                 Go to Dashboard
               </p>
             </Link>
