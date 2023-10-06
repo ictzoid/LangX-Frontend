@@ -5,6 +5,7 @@ export default {
     extend: {
       fontSize: {
         fiftyPixels: "50px",
+        twentyFourPixels: "24px",
       },
       height: {
         fiftyPixels: "50px",
