@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/images/Logo.png";
 import Emailpix from "../../assets/images/mark_email_unread.jpg";
 import { toast } from "react-toastify";
-
 // import { Link } from 'react-router-dom';
 
 export const ForgotPassword = () => {
