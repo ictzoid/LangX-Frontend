@@ -42,6 +42,12 @@ export const SignUp = () => {
         type: "error",
       });
       setIsLoading(false);
+    } else if (payload.password.length < 8) {
+      showToast({
+        message: "Password must be at least 8 characters",
+        type: "error",
+      });
+      setIsLoading(false);
     } else {
       setTimeout(() => {
         showToast({
@@ -59,25 +65,33 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="lg:p-[60px] max-w-[1300px] mx-auto">
-      <img className="hidden xl:flex w-[15%]" src={Logo} alt="logo_image" />
-      <div className="w-full lg:flex flex justify-center items-center gap-20">
+    <div className="lg:p-sixtyPixels max-w-thirteenHundredPixels mx-auto">
+      <img
+        className="hidden xl:flex w-fifteenPercent"
+        src={Logo}
+        alt="logo_image"
+      />
+      <div className="w-full lg:flex flex justify-center items-center gap-">
         <div className=" hidden xl:flex xl:flex-col xl:justify-center mt-[-10px] gap-10">
-          <h2 className="text-center text-[32px] font-medium">
+          <h2 className="text-center text-thirtyTwoPixels font-medium">
             Welcome to LingoLeap
           </h2>
-          <img src={Language} alt="language_image" className="min-w-[100%]" />
+          <img
+            src={Language}
+            alt="language_image"
+            className="min-w-oneHundredPercent"
+          />
         </div>
         <div className=" md:flex md:justify-left">
-          <div className="px-[10px] py-16 md:py-20 w-[320px] md:w-[400px] mx-auto">
-            <h3 className="text-center text-twentyFourPixels md:text-[28px] lg:text-[32px] font-medium lg:font-semibold">
+          <div className="px-[10px] py-16 md:py-20 w-threeTwentyPixels md:w-fourHundredPixels mx-auto">
+            <h3 className="text-center text-twentyFourPixels md:text-twentyEightPixels lg:text-thirtyTwoPixels font-medium lg:font-semibold">
               Create an account
             </h3>
             <p
               id="text-custom-shadow"
-              className="hidden lg:block text-center text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-4 leading-5"
+              className="hidden lg:block text-center text-twelvePixels md:text-thirteenPixels lg:text-fourteenPixels font-regular mt-4 leading-5"
             ></p>
-            <p className="block lg:hidden text-center text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-4 leading-5">
+            <p className="block lg:hidden text-center text-twelvePixels md:text-thirteenPixels lg:text-fourteenPixels font-regular mt-4 leading-5">
               Please note that email verification is required for signup. Your
               email will only be used to verify your identity for security
               purposes.
@@ -90,7 +104,7 @@ export const SignUp = () => {
 
             <div className="flex items-center mt-2">
               <div className="flex-grow border-t border-gray-300"></div>
-              <p className="px-2 text-GrayColor1 text-[12px] md:text-[13px] lg:text-[14px]">
+              <p className="px-2 text-GrayColor1 text-twelvePixels md:text-thirteenPixels lg:text-fourteenPixels">
                 or
               </p>
               <div className="flex-grow border-t border-gray-300"></div>
@@ -99,7 +113,7 @@ export const SignUp = () => {
             <div className="flex flex-col items-center mt-6 gap-4">
               <Input
                 type="text"
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-twelvePixels md:text-fourteenPixels lg:text-sixteenPixels outline-none"
                 placeholder="Username"
                 name="username"
                 id="username"
@@ -110,7 +124,7 @@ export const SignUp = () => {
 
               <Input
                 type="email"
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-twelvePixels md:text-fourteenPixels lg:text-sixteenPixels outline-none"
                 placeholder="Email address"
                 name="email"
                 id="email"
@@ -120,7 +134,7 @@ export const SignUp = () => {
               />
 
               <Input
-                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-[12px] md:text-[14px] lg:text-[16px] outline-none"
+                className="border border-GrayColor1 w-full py-3 rounded-[7px] px-[8px] text-twelvePixels md:text-fourteenPixels lg:text-sixteenPixels outline-none"
                 placeholder="Password"
                 name="password"
                 id="password"
@@ -129,12 +143,12 @@ export const SignUp = () => {
                 type="password"
               />
             </div>
-            <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2">
+            <p className="text-twelvePixels md:text-thirteenPixels lg:text-fourteenPixels font-regular mt-2">
               For a secure password use{" "}
               <span className="text-primaryColor">8 characters</span>
             </p>
             <PrimaryBtn
-              text="text-[13px] md:text-[16px] lg:text-[18px] text-white"
+              text="text-thirteenPixels md:text-sixteenPixels lg:text-eighteenPixels text-white"
               w="w-full"
               onClick={handleSubmit}
               className="mt-8"
@@ -144,7 +158,7 @@ export const SignUp = () => {
             </PrimaryBtn>
 
             <Link to="/">
-              <p className="text-[12px] md:text-[13px] lg:text-[14px] font-regular mt-2 text-center">
+              <p className="text-twelvePixels md:text-thirteenPixels lg:text-fourteenPixels font-regular mt-2 text-center">
                 Have an Account?{" "}
                 <span className="text-primaryColor">Log in</span>
               </p>
