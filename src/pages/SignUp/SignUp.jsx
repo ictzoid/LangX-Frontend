@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import googleIcon from "../../assets/images/google.png";
 import appleIcon from "../../assets/images/apple.png";
@@ -14,6 +14,7 @@ import { BiSolidUser } from "react-icons/bi";
 import { RegisterApi } from "../../services/ApiCalls";
 
 export const SignUp = () => {
+  const nav = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({
     username: "",
@@ -59,13 +60,12 @@ export const SignUp = () => {
             message: "Account created successfully",
             type: "success",
           });
-          // localStorage.setItem("pendingEmail", payload.email);
+          nav("/email-verification");
         } else {
           showToast({
             message: "Account creation failed",
             type: "error",
           });
-          // localStorage.setItem("pendingEmail", payload.email);
         }
 
         setPayload({
