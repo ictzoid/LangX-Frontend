@@ -11,6 +11,7 @@ import "./styles.css";
 import { PrimaryBtn } from "../../components/Buttons/PrimaryBtn";
 import { MdEmail } from "react-icons/md";
 import { BiSolidUser } from "react-icons/bi";
+import { RegisterApi } from "../../services/ApiCalls";
 
 export const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,37 +31,56 @@ export const SignUp = () => {
 
   console.log("SignUp_Payload", payload);
 
-  const handleSubmit = () => {
-    setIsLoading(true);
-    if (
-      payload.username === "" ||
-      payload.email === "" ||
-      payload.password === ""
-    ) {
-      showToast({
-        message: "Please fill all fields",
-        type: "error",
-      });
-      setIsLoading(false);
-    } else if (payload.password.length < 8) {
-      showToast({
-        message: "Password must be at least 8 characters",
-        type: "error",
-      });
-      setIsLoading(false);
-    } else {
-      setTimeout(() => {
+  const handleSubmit = async () => {
+    try {
+      setIsLoading(true);
+
+      if (
+        payload.username === "" ||
+        payload.email === "" ||
+        payload.password === ""
+      ) {
         showToast({
-          message: "Login Successful",
-          type: "success",
+          message: "Please fill all fields",
+          type: "error",
         });
+      } else if (payload.password.length < 8) {
+        showToast({
+          message: "Password must be at least 8 characters",
+          type: "error",
+        });
+      } else {
+        const response = await RegisterApi(payload);
+
+        console.log("RegisterResponse", response);
+
+        if (response.status === 201) {
+          showToast({
+            message: "Account created successfully",
+            type: "success",
+          });
+          // localStorage.setItem("pendingEmail", payload.email);
+        } else {
+          showToast({
+            message: "Account creation failed",
+            type: "error",
+          });
+          // localStorage.setItem("pendingEmail", payload.email);
+        }
+
         setPayload({
           username: "",
           email: "",
           password: "",
         });
-        setIsLoading(false);
-      }, 2000);
+      }
+    } catch (error) {
+      showToast({
+        message: error.message,
+        type: "error",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
