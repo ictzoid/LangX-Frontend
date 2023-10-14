@@ -17,7 +17,7 @@ const EmailVerifySuccess = () => {
           <img
             className="m-auto my-4"
             src={SuccessLogo}
-          />
+          />  
 
           <h2 className="text-primaryColor my-4 text-4xl font-bold">Verified</h2>
           <p className="md:text-xl">

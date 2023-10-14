@@ -2,8 +2,11 @@
 import mail from "../../assets/images/email.png";
 import logo from "../../../src/assets/images/Logo.png";
 import { Link } from "react-router-dom";
+import { SignUp } from "../SignUp/SignUp";
 
 const EmailVerifyThankYou = () => {
+
+  
   return (
     <div>
       <div className="h-[100vh] w-[100vw]">
