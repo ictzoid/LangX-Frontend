@@ -4,7 +4,6 @@ import Input from "../../components/Input";
 import googleIcon from "../../assets/images/google.png";
 import appleIcon from "../../assets/images/apple.png";
 import { SignUpButton } from "../../components/Buttons/SignUpBtn";
-import Language from "../../assets/images/Language.png";
 import Logo from "../../assets/images/Logo.png";
 import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
@@ -95,7 +94,7 @@ export const SignUp = () => {
             Welcome to LingoLeap
           </h2>
           <img
-            src={Language}
+            src="./images/language.png"
             alt="language_image"
             className="min-w-oneHundredPercent"
           />
