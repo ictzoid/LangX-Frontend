@@ -25,7 +25,7 @@ export const ResetPassword = () => {
   };
 
   const resetButton = (event) => {
-    // setIsLoading(true);
+    
     event.preventDefault();
     const regEx = new RegExp(
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/
