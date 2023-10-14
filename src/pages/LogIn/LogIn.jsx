@@ -4,7 +4,7 @@ import googleIcon from "../../assets/images/google.png";
 import appleIcon from "../../assets/images/apple.png";
 // import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/Logo.png";
 import { showToast } from "../../Toastify/Toast";
 import { MdEmail } from "react-icons/md";
 import Input from "../../components/Input";
@@ -54,7 +54,7 @@ export const LogIn = () => {
     <div className="flex justify-center w-[90%] mx-auto">
       
       <div className="hidden lg:flex lg:items-center lg:justify-center lg:flex-col w-[50%]">
-      <img className="w-[149.1px] h-[36px] ml-[-200px] mt-3" src={Logo} />
+      <img className="w-[149.1px] h-[36px] ml-[-200px] mt-3" src={logo} />
         <img className="w-[60%] h-[600px] pr-[20px]" src={heroImg} />
       </div>
       <div className="text-center pt-[60px] lg:border-l lg:w-[45%] px-[24px]">
