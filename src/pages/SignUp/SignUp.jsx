@@ -29,8 +29,6 @@ export const SignUp = () => {
     });
   };
 
-  console.log("SignUp_Payload", payload);
-
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
