@@ -113,8 +113,8 @@ export const SignUp = () => {
             </p>
 
             <div className="flex flex-col mt-6 gap-4">
-              <SignUpButton icon={googleIcon} text="Sign up with Google" />
-              <SignUpButton icon={appleIcon} text="Sign up with Apple" />
+              <SignUpButton icon={googleIcon} text="Sign Up with Google" />
+              <SignUpButton icon={appleIcon} text="Sign Up with Apple" />
             </div>
 
             <div className="flex items-center mt-2">
