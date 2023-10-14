@@ -53,8 +53,6 @@ export const SignUp = () => {
       } else {
         const response = await RegisterApi(payload);
 
-        console.log("RegisterResponse", response);
-
         if (response.status === 201) {
           showToast({
             message: "Account created successfully",
