@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 import googleIcon from "../../assets/images/google.png";
 import appleIcon from "../../assets/images/apple.png";
 import { SignUpButton } from "../../components/Buttons/SignUpBtn";
-import Language from "../../assets/images/Language.png";
 import Logo from "../../assets/images/Logo.png";
 import { showToast } from "../../Toastify/Toast";
 import "./styles.css";
@@ -14,6 +13,7 @@ import { BiSolidUser } from "react-icons/bi";
 import { RegisterApi } from "../../services/ApiCalls";
 
 export const SignUp = () => {
+  const nav = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({
     username: "",
@@ -28,8 +28,6 @@ export const SignUp = () => {
       [name]: value,
     });
   };
-
-  console.log("SignUp_Payload", payload);
 
   const handleSubmit = async () => {
     try {
@@ -52,20 +50,17 @@ export const SignUp = () => {
       } else {
         const response = await RegisterApi(payload);
 
-        console.log("RegisterResponse", response);
-
         if (response.status === 201) {
           showToast({
             message: "Account created successfully",
             type: "success",
           });
-          // localStorage.setItem("pendingEmail", payload.email);
+          nav("/email-verification");
         } else {
           showToast({
             message: "Account creation failed",
             type: "error",
           });
-          // localStorage.setItem("pendingEmail", payload.email);
         }
 
         setPayload({
@@ -97,7 +92,7 @@ export const SignUp = () => {
             Welcome to LingoLeap
           </h2>
           <img
-            src={Language}
+            src="./images/language.png"
             alt="language_image"
             className="min-w-oneHundredPercent"
           />
@@ -118,8 +113,8 @@ export const SignUp = () => {
             </p>
 
             <div className="flex flex-col mt-6 gap-4">
-              <SignUpButton icon={googleIcon} text="Sign up with Google" />
-              <SignUpButton icon={appleIcon} text="Sign up with Apple" />
+              <SignUpButton icon={googleIcon} text="Sign Up with Google" />
+              <SignUpButton icon={appleIcon} text="Sign Up with Apple" />
             </div>
 
             <div className="flex items-center mt-2">
