@@ -10,6 +10,7 @@ export default function Sidebar() {
   return (
     <div className="fixed flex flex-col justify-between text-[14px] text-white bg-[#713586] w-[166px] h-screen pt-[5%] pb-[10%] lg:w-[230px] lg:text-[18px] lg:pt-[2%] lg:pb-[3%]">
       <div>
+        {/* logo */}
         <img
           className="mx-auto w-[106px] h-[25px] lg:w-[132px] lg:h-[31px]"
           src="./images/LingoleapLogo.png"
