@@ -25,14 +25,13 @@ export const ResetPassword = () => {
   };
 
   const resetButton = (event) => {
-    // setIsLoading(true);
     event.preventDefault();
     const regEx = new RegExp(
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{8,}$/
     );
     if (!regEx.test(resetInput.newPassword)) {
       setPassError(
-        "Password must have At least one alphabetical character, At least one digit, Contains at least one special character (e.g., !@#$%^&*) and Minimum length of 8 characters"
+        "Password must have At least one alphabetical character, At least one digit, Contains at least one special characters (e.g., !@#$%^&*) and Minimum length of 8 characters"
       );
     } else if (resetInput.newPassword !== resetInput.confirmNewPassword) {
       setError("Passwords do not match!");
